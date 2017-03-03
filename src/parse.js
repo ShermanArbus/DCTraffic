@@ -1,6 +1,6 @@
 let fileSystem = require("fs");
 
-function parse() {
+module.exports = function parse() {
 
 
 
@@ -14,8 +14,8 @@ let cellGroups = [];
 for (i = 0; i < rows.length; i++) {
   cellGroups.push(rows[i].split(","));
 };
-console.log(cellGroups);
+// console.log(cellGroups);
 
 };
 
-parse();
+module.exports();
