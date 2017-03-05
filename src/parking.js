@@ -1,31 +1,28 @@
 let parsedData = require("./parse.js");
 
-function searchData() {
-
-
 
 let parkingData = parsedData("./parking_feb_2016.csv");
 
-let codeSearch;
-let vCodeFreq = [];
+// function parkingSearch() {
 
-parkingData.forEach(function findRow(row) {
-  if (row.indexOf(row[9]) === -1) {
-    console.log(row);
-    vCodeFreq.push(row[9], 1);
-    //this needs to be put into an array of objects - so new Object?
-  } else {
-  }
+  function codeFrequency() {
+    let rowArray = [];
+    parkingData.forEach(function findRow(row) {
+      rowArray.push(row[9]);
+    });
+
+    let vCodeFreq = {};
+    rowArray.forEach(function findFreq(each) {
+      if (vCodeFreq[each] >= 1) {
+        vCodeFreq[each] = vCodeFreq[each] + 1;
+      }
+      else {
+        vCodeFreq[each] = 1;
+      }
 // console.log(vCodeFreq);
-
-
-});
-
-
-
-
-
-
+  });
+  console.log(vCodeFreq);
 
 }
-searchData();
+// console.log(parkingSearch());
+codeFrequency();
