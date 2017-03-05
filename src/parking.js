@@ -3,12 +3,11 @@ let parsedData = require("./parse.js");
 
 let parkingData = parsedData("./parking_feb_2016.csv");
 
-// function parkingSearch() {
-
-  function codeFrequency() {
+function codeFrequency() {
     let rowArray = [];
     parkingData.forEach(function findRow(row) {
-      rowArray.push(row[9]);
+      // rowArray.push(row[9]); *****DON'T GET RID OF THIS *******
+      rowArray.push(row[12]); //<----state frequency*******
     });
 
     let vCodeFreq = {};
@@ -19,10 +18,8 @@ let parkingData = parsedData("./parking_feb_2016.csv");
       else {
         vCodeFreq[each] = 1;
       }
-// console.log(vCodeFreq);
   });
   console.log(vCodeFreq);
-
 }
-// console.log(parkingSearch());
+
 codeFrequency();
