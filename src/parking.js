@@ -1,19 +1,28 @@
-let parsedData = require("./parse.js");
 
+module.exports = function codeFrequency() {
+  let parsedData = require("./parse.js");
+  let parkingData = parsedData(fileName);
 
-let parkingData = parsedData(fileName);
-
-function codeFrequency() {
     let rowArray = [];
     parkingData.forEach(function findRow(row) {
       if (parkingData.indexOf(row) === 0 || parkingData.indexOf(row) === parkingData.length-1) {
         return;
       }
       else {
-      rowArray.push(row[9]); //*****DON'T GET RID OF THIS *******
-      // rowArray.push(row[12]); //<----state frequency*******
+      rowArray.push(row[9]);
     }
     });
+
+    let states = [];
+    parkingData.forEach(function findRow(row) {
+      if (parkingData.indexOf(row) === 0 || parkingData.indexOf(row) === parkingData.length-1) {
+        return;
+      }
+      else {
+      states.push(row[12]);
+    }
+    });
+
 
     let vCodeFreq = {};
     rowArray.forEach(function findFreq(each) {
@@ -25,8 +34,17 @@ function codeFrequency() {
       }
   });
   let freqLength = Object.keys(vCodeFreq);
-  console.log(freqLength.length);
-  console.log(vCodeFreq);
+  let month = "month";
+  let year = "year";
+  // console.log(freqLength.length);
+  // console.log(vCodeFreq);
+  console.log("In " + month + " " + year + ", there were " + freqLength.length +
+  " different types of parking tickets issued.");
+
+  console.log("The most common violation was " + vCodeFreq + ".");
+  console.log("Drivers from " + states + " received the most parking tickets.");
+
+
 }
 
-codeFrequency();
+module.exports(fileName);
