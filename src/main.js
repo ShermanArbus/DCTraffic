@@ -1,4 +1,8 @@
+let parse = require("./parse.js");
+let moving = require("./moving.js");
+let parking = require("./parking.js");
 
+let fileName;
 let month;
 let year;
 let ticketTypeCount;

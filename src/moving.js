@@ -2,7 +2,7 @@ let parsedData = require("./parse.js");
 
 function searchData() {
 
-let movingData = parsedData("./moving_jan_2016.csv");
+let movingData = parsedData(fileName);
 
 //add variable for each final value we're trying to find.
 

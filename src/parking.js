@@ -1,7 +1,7 @@
 let parsedData = require("./parse.js");
 
 
-let parkingData = parsedData("./parking_feb_2016.csv");
+let parkingData = parsedData(fileName);
 
 function codeFrequency() {
     let rowArray = [];

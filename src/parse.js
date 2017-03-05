@@ -16,4 +16,4 @@ for (i = 0; i < rows.length; i++) {
 return cellGroups;
 };
 
-module.exports("./moving_jan_2016.csv");
+module.exports(fileName);
