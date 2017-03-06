@@ -1,7 +1,7 @@
 
 module.exports = function codeFrequency() {
   let parsedData = require("./parse.js");
-  let parkingData = parsedData(fileName);
+  let parkingData = parsedData("./parking_feb_2016.csv");
 
     let rowArray = [];
     parkingData.forEach(function findRow(row) {
@@ -20,6 +20,7 @@ module.exports = function codeFrequency() {
       }
       else {
       states.push(row[12]);
+      //I'm missing an if/else statement here to pull the index value with the highest number out of this. 
     }
     });
 
@@ -45,6 +46,6 @@ module.exports = function codeFrequency() {
   console.log("Drivers from " + states + " received the most parking tickets.");
 
 
-}
+};
 
-module.exports(fileName);
+module.exports();

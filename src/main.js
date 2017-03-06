@@ -1,5 +1,5 @@
-let argv = require('process-argv')(month, year);
-
+let month = process.argv2;
+let year = proccess.argv3;
 
 
 function trafficStats(month, year) {

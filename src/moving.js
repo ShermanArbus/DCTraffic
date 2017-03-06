@@ -3,7 +3,7 @@ module.exports = function searchData() {
   let parsedData = require("./parse.js");
 
 
-let movingData = parsedData(fileName);
+let movingData = parsedData("./moving_jan_2016.csv");
 
 //add variable for each final value we're trying to find.
 
@@ -26,6 +26,14 @@ movingData.forEach(function findRow(row) {
 
 movingData.forEach(function findRow(row) {
   let row10Num = new Number(row[10]);
+    finePaid = finePaid + row10Num;
+    //^^^this is wrong and I know it's repetitive. trying to get the total fines paid, not just photo. 
+    // console.log(photoCount);
+});
+
+
+movingData.forEach(function findRow(row) {
+  let row10Num = new Number(row[10]);
   if (row10Num >= 0) {
     fineCount++;
     fineAmt = fineAmt + row10Num;
@@ -38,14 +46,17 @@ movingData.forEach(function findRow(row) {
 
   }
 
-  console.log("The most common moving violation was " + fineCount + ".");
-  console.log("The average fine issued for moving violations was $" + fineAvg + ".");
-  console.log("The total income from photo citations was $" + photoPaid + ".");
-  console.log("The total income for all moving violations was $" + finePaid + ".");
 
 
 });
+console.log(finePaid);
 
-}
+console.log("The most common moving violation was " + fineCount + ".");
+console.log("The average fine issued for moving violations was $" + fineAvg + ".");
+console.log("The total income from photo citations was $" + photoPaid + ".");
+console.log("The total income for all moving violations was $" + finePaid + ".");
 
-module.exports(fileName);
+
+};
+
+module.exports();
